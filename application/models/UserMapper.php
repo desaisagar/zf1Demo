@@ -54,13 +54,14 @@ class Application_Model_UserMapper
             'gender' => $user->getGender(),
             'email' => $user->getEmail(),
             'mobile_number' => $user->getMobileNumber() ?? null,
-            'date_of_birth' => $user->getDateOfBirth(),
+            'date_of_birth' => $user->getDateOfBirth() ? date('Y-m-d', strtotime($user->getDateOfBirth())) : null,
             'designation' => $user->getDesignation(),
             'branch' => $user->getBranch(),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
-        if (null === ($id = $user->getId())) {
+        $id = $user->getId();
+        if ('' === $id) {
             $this->getDbTable()->insert($data);
         } else {
             $this->getDbTable()->update($data, array('id = ?' => $id));

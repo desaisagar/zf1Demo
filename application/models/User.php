@@ -74,7 +74,7 @@ class Application_Model_User
     }
 
     /**
-     * @return mixed
+     * @return int|null
      */
     public function getId()
     {
@@ -82,7 +82,7 @@ class Application_Model_User
     }
 
     /**
-     * @param mixed $id
+     * @param int|null $id
      */
     public function setId($id): void
     {

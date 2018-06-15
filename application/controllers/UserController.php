@@ -22,11 +22,20 @@ class UserController extends Zend_Controller_Action
     }
 
     /**
-     * Save
+     * Get and save user data
      */
     public function saveAction()
     {
+        $request = $this->getRequest();
         $form = new Application_Form_UserForm();
+        if ($this->getRequest()->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $comment = new Application_Model_User($form->getValues());
+                $mapper  = new Application_Model_UserMapper();
+                $mapper->save($comment);
+                return $this->_helper->redirector('index');
+            }
+        }
         $this->view->title = 'New Employee';
         $this->view->assign('userForm', $form);
     }
