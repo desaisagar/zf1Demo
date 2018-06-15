@@ -3,11 +3,6 @@
 class UserController extends Zend_Controller_Action
 {
 
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
-
     /**
      * List of users
      *
@@ -40,22 +35,39 @@ class UserController extends Zend_Controller_Action
         $this->view->assign('userForm', $form);
     }
 
+    /**
+     * Edit user data
+     *
+     * @throws Zend_Db_Table_Exception
+     */
     public function editAction()
     {
-        // action body
+        $request = $this->getRequest();
+        $form = new Application_Form_UserForm();
+
+        if ($request->isGet()) {
+            $id = $request->getParam('id');
+            $userMapper = new Application_Model_UserMapper();
+            $editUser = $userMapper->find($id);
+            $this->view->assign('userForm', $form->populate($editUser->toArray()));
+        }
+        $this->view->title = 'Edit Employee';
     }
 
+    /**
+     * Delete user record
+     *
+     * @return mixed
+     * @throws Exception
+     */
     public function deleteAction()
     {
-        // action body
+        if ($this->getRequest()->isGet()) {
+            $id = $this->getRequest()->getParam('id');
+            $userMapper = new Application_Model_UserMapper();
+            $userMapper->delete($id);
+        }
+        return $this->_helper->redirector('index');
     }
 
-
 }
-
-
-
-
-
-
-

@@ -111,7 +111,7 @@ class Application_Model_UserMapper
      */
     public function delete($id)
     {
-        return $this->getDbTable()->delete($id);
+        return $this->getDbTable()->delete(array('id = ?' => $id));
     }
 
     /**

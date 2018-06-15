@@ -27,12 +27,12 @@
                         'controller' => 'user',
                         'action' => 'edit',
                         'id' => $user->id
-                    ]) ?>">Edit</a>
+                    ], 'default', true) ?>">Edit</a>
                     <a href="<?php echo $this->url([
                         'controller' => 'user',
                         'action' => 'delete',
                         'id' => $user->id
-                    ]) ?>">Delete</a>
+                    ], 'default', true) ?>">Delete</a>
                 </td>
             </tr>
             <?php endforeach; ?>

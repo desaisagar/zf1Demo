@@ -3,6 +3,30 @@
 class Application_Form_UserForm extends Zend_Form
 {
 
+    public function isValid($data)
+    {
+        $this->getElement('email')
+            ->addValidators(
+                array(
+                    'EmailAddress',
+                    array('Db_NoRecordExists', false, array(
+                        'table' => 'user',
+                        'field' => 'email',
+                        'messages' => array(
+                            'recordFound' => 'Email already taken'
+                        ),
+                        'exclude'   => array(
+                            'field' => 'id',
+                            'value' => $data['id']
+                            )
+                        )
+                    )
+                )
+            );
+        return parent::isValid($data);
+    }
+
+
     public function init()
     {
         /* Form Elements & Other Definitions Here ... */
@@ -32,7 +56,7 @@ class Application_Form_UserForm extends Zend_Form
             'filters'    => array('StringTrim'),
             'validators' => array(
                 'EmailAddress',
-                array('Db_NoRecordExists', true, array(
+                array('Db_NoRecordExists', false, array(
                         'table' => 'user',
                         'field' => 'email',
                         'messages' => array(
@@ -53,7 +77,8 @@ class Application_Form_UserForm extends Zend_Form
             'label' => 'Date of birth:',
             'required' => false,
             'filters' => array('StringTrim'),
-            'placeholder' => 'dd/mm/yyyy'
+            'placeholder' => 'dd/mm/yyyy',
+            'format' => 'dd/mm/yyyy'
         ));
 
         $this->addElement('select', 'designation', array(

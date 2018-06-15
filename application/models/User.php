@@ -233,5 +233,24 @@ class Application_Model_User
         $this->_updatedAt = $updatedAt;
     }
 
+    /**
+     * Object to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'id' => $this->_id,
+            'name' => $this->_name,
+            'gender' => $this->_gender,
+            'email' => $this->_email,
+            'mobileNumber' => $this->_mobileNumber,
+            'dateOfBirth' => $this->_dateOfBirth,
+            'designation' => $this->_designation,
+            'branch' => $this->_branch
+        );
+    }
+
 }
 
