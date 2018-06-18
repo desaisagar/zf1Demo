@@ -11,27 +11,27 @@
         <th>Actions</th>
     </thead>
     <tbody>
-        <?php if (is_array($this->users) && count($this->users) > 0): ?>
-            <?php foreach ($this->users as $user): ?>
+        <?php if ($this->paginator && count($this->paginator) > 0): ?>
+            <?php foreach ($this->paginator as $user): ?>
             <tr>
-                <td><?php echo $user->id; ?></td>
-                <td><?php echo $user->name; ?></td>
-                <td><?php echo $user->gender; ?></td>
-                <td><?php echo $user->email; ?></td>
-                <td><?php echo $user->mobileNumber; ?></td>
-                <td><?php echo $user->dateOfBirth; ?></td>
-                <td><?php echo $user->designation; ?></td>
-                <td><?php echo $user->branch; ?></td>
+                <td><?php echo $user['id']; ?></td>
+                <td><?php echo $user['name']; ?></td>
+                <td><?php echo $user['gender']; ?></td>
+                <td><?php echo $user['email']; ?></td>
+                <td><?php echo $user['mobile_number']; ?></td>
+                <td><?php echo $user['date_of_birth']; ?></td>
+                <td><?php echo $user['designation']; ?></td>
+                <td><?php echo $user['branch']; ?></td>
                 <td>
                     <a href="<?php echo $this->url([
                         'controller' => 'user',
                         'action' => 'edit',
-                        'id' => $user->id
+                        'id' => $user['id']
                     ], 'default', true) ?>">Edit</a>
                     <a href="<?php echo $this->url([
                         'controller' => 'user',
                         'action' => 'delete',
-                        'id' => $user->id
+                        'id' => $user['id']
                     ], 'default', true) ?>">Delete</a>
                 </td>
             </tr>
@@ -43,3 +43,4 @@
         <?php endif; ?>
     </tbody>
 </table>
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>

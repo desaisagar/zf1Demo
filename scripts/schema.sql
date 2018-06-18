@@ -1,4 +1,4 @@
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(32) NOT NULL ,
   `gender` ENUM('Male','Female') NOT NULL ,

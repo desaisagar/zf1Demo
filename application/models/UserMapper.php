@@ -85,6 +85,18 @@ class Application_Model_UserMapper
     }
 
     /**
+     * @return Zend_Db_Select
+     */
+    public function selectAll()
+    {
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $selectUsers = new Zend_Db_Select($db);
+        $selectUsers->from('users');
+        return $selectUsers;
+    }
+
+
+    /**
      * Find single record of user by id
      *
      * @param int $id

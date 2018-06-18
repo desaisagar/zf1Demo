@@ -1,12 +1,12 @@
 <?php
 
 $route = new Zend_Controller_Router_Route(
-    '/', [
+    '/user/:page', [
         'controller' => 'user',
         'action' => 'index'
     ]
 );
-$router->addRoute('user', $route);
+$router->addRoute('user/:page', $route);
 
 $route = new Zend_Controller_Router_Route(
     'user/create', [

@@ -11,7 +11,12 @@ class UserController extends Zend_Controller_Action
     public function indexAction()
     {
         $users = new Application_Model_UserMapper();
-        $this->view->assign('users', $users->findAll());
+
+        $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_DbSelect($users->selectAll()));
+        $paginator->setItemCountPerPage(2)
+                    ->setCurrentPageNumber($this->getParam('page'), 1);
+
+        $this->view->assign('paginator', $paginator);
 
         $this->view->title = 'Employee List';
     }

@@ -37,12 +37,14 @@ class Application_Form_UserForm extends Zend_Form
 
         $this->addElement('text', 'name', array(
             'label' => 'Name:',
+            'class' => 'form-control',
             'required' => true,
             'filters' => array('StringTrim')
         ));
 
         $this->addElement('radio', 'gender', array(
             'label' => 'Gender:',
+            'class' => 'form-control',
             'required' => true,
             'multiOptions' => array(
                 'Male' => 'Male',
@@ -52,6 +54,7 @@ class Application_Form_UserForm extends Zend_Form
 
         $this->addElement('text', 'email', array(
             'label'      => 'Email address:',
+            'class' => 'form-control',
             'required'   => true,
             'filters'    => array('StringTrim'),
             'validators' => array(
@@ -69,20 +72,22 @@ class Application_Form_UserForm extends Zend_Form
 
         $this->addElement('text', 'mobileNumber', array(
             'label' => 'Mobile Number:',
+            'class' => 'form-control',
             'required' => false,
-            'filters' => array('StringTrim')
+            'filters' => array('StringTrim'),
         ));
 
         $this->addElement('text', 'dateOfBirth', array(
             'label' => 'Date of birth:',
+            'class' => 'form-control',
             'required' => false,
             'filters' => array('StringTrim'),
-            'placeholder' => 'dd/mm/yyyy',
-            'format' => 'dd/mm/yyyy'
+            'placeholder' => 'dd-mm-yyyy'
         ));
 
         $this->addElement('select', 'designation', array(
             'label' => 'Designation:',
+            'class' => 'form-control',
             'required' => true,
             'multiOptions' => array(
                 '' => 'Please select designation',
@@ -94,6 +99,7 @@ class Application_Form_UserForm extends Zend_Form
 
         $this->addElement('text', 'branch', array(
             'label' => 'Branch:',
+            'class' => 'form-control',
             'required' => true,
             'filters' => array('StringTrim')
         ));
