@@ -3,6 +3,10 @@
 class Application_Form_UserForm extends Zend_Form
 {
 
+    /**
+     * @param array $data
+     * @return bool
+     */
     public function isValid($data)
     {
         $this->getElement('email')
@@ -10,7 +14,7 @@ class Application_Form_UserForm extends Zend_Form
                 array(
                     'EmailAddress',
                     array('Db_NoRecordExists', false, array(
-                        'table' => 'user',
+                        'table' => 'users',
                         'field' => 'email',
                         'messages' => array(
                             'recordFound' => 'Email already taken'
@@ -60,7 +64,7 @@ class Application_Form_UserForm extends Zend_Form
             'validators' => array(
                 'EmailAddress',
                 array('Db_NoRecordExists', false, array(
-                        'table' => 'user',
+                        'table' => 'users',
                         'field' => 'email',
                         'messages' => array(
                             'recordFound' => 'Email already taken'

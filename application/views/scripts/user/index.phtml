@@ -27,12 +27,12 @@
                         'controller' => 'user',
                         'action' => 'edit',
                         'id' => $user['id']
-                    ], 'default', true) ?>">Edit</a>
+                    ], 'default', true) ?>"><i class="glyphicon glyphicon-edit"></i> </a> &nbsp;
                     <a href="<?php echo $this->url([
                         'controller' => 'user',
                         'action' => 'delete',
                         'id' => $user['id']
-                    ], 'default', true) ?>">Delete</a>
+                    ], 'default', true) ?>"><i class="glyphicon glyphicon-trash"></i> </a>
                 </td>
             </tr>
             <?php endforeach; ?>

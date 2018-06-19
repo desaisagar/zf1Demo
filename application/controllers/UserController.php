@@ -10,14 +10,8 @@ class UserController extends Zend_Controller_Action
      */
     public function indexAction()
     {
-        $users = new Application_Model_UserMapper();
-
-        $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_DbSelect($users->selectAll()));
-        $paginator->setItemCountPerPage(2)
-                    ->setCurrentPageNumber($this->getParam('page'), 1);
-
-        $this->view->assign('paginator', $paginator);
-
+        $userService = new Application_Service_User();
+        $this->view->assign('paginator', $userService->findAll($this->getParam('page', 1)));
         $this->view->title = 'Employee List';
     }
 
@@ -26,13 +20,11 @@ class UserController extends Zend_Controller_Action
      */
     public function saveAction()
     {
-        $request = $this->getRequest();
         $form = new Application_Form_UserForm();
         if ($this->getRequest()->isPost()) {
-            if ($form->isValid($request->getPost())) {
-                $comment = new Application_Model_User($form->getValues());
-                $mapper  = new Application_Model_UserMapper();
-                $mapper->save($comment);
+            if ($form->isValid($this->getRequest()->getPost())) {
+                $userService = new Application_Service_User();
+                $userService->save($form->getValues());
                 return $this->_helper->redirector('index');
             }
         }
@@ -47,14 +39,11 @@ class UserController extends Zend_Controller_Action
      */
     public function editAction()
     {
-        $request = $this->getRequest();
         $form = new Application_Form_UserForm();
-
-        if ($request->isGet()) {
-            $id = $request->getParam('id');
-            $userMapper = new Application_Model_UserMapper();
-            $editUser = $userMapper->find($id);
-            $this->view->assign('userForm', $form->populate($editUser->toArray()));
+        if ($this->getRequest()->isGet()) {
+            $userService = new Application_Service_User();
+            $user = $userService->findById($this->getRequest()->getParam('id'));
+            $this->view->assign('userForm', $form->populate($user->toArray()));
         }
         $this->view->title = 'Edit Employee';
     }
@@ -68,9 +57,8 @@ class UserController extends Zend_Controller_Action
     public function deleteAction()
     {
         if ($this->getRequest()->isGet()) {
-            $id = $this->getRequest()->getParam('id');
-            $userMapper = new Application_Model_UserMapper();
-            $userMapper->delete($id);
+            $userService = new Application_Service_User();
+            $userService->delete($this->getRequest()->getParam('id'));
         }
         return $this->_helper->redirector('index');
     }
