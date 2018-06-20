@@ -45,6 +45,7 @@ class Application_Model_UserMapper
      * Save or update user record
      *
      * @param Application_Model_User $user
+     * @return int|mixed
      * @throws Exception
      */
     public function save(Application_Model_User $user)
@@ -61,10 +62,10 @@ class Application_Model_UserMapper
             'updated_at' => date('Y-m-d H:i:s')
         ];
         $id = $user->getId();
-        if ('' === $id) {
-            $this->getDbTable()->insert($data);
+        if ('' === $id || null === $id) {
+            return $this->getDbTable()->insert($data);
         } else {
-            $this->getDbTable()->update($data, array('id = ?' => $id));
+            return $this->getDbTable()->update($data, array('id = ?' => $id));
         }
     }
 

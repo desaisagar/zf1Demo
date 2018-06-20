@@ -1,0 +1,6 @@
+TAP version 13
+ok 1 - UserTest::testCreateUser
+ok 2 - UserTest::testFindAllUser
+ok 3 - UserTest::testFindUserById
+ok 4 - UserTest::testDeleteUserById
+1..4

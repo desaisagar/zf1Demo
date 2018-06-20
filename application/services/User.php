@@ -34,7 +34,7 @@ class Application_Service_User
      * Save or update user information
      *
      * @param array $data
-     * @return Application_Model_User
+     * @return int|mixed
      * @throws Exception
      */
     public function save($data)

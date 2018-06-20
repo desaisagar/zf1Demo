@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="User.php">
+    <totals>
+      <lines total="69" comments="33" code="36" executable="10" executed="10" percent="100.00%"/>
+      <methods count="5" tested="5" percent="100.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="1" percent="100.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="Application_Service_User" start="3" executable="10" executed="10" crap="5">
+      <package full="Application.Service" name="" sub="" category=""/>
+      <namespace name=""/>
+      <method name="__construct" signature="__construct()" start="14" end="17" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="findAll" signature="findAll($page = 1)" start="25" end="31" crap="1" executable="4" executed="4" coverage="100"/>
+      <method name="save" signature="save($data)" start="40" end="44" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="findById" signature="findById($id)" start="53" end="56" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="delete" signature="delete($id)" start="65" end="68" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="16">
+        <covered by="UserTest::testCreateUser"/>
+        <covered by="UserTest::testFindAllUser"/>
+        <covered by="UserTest::testFindUserById"/>
+        <covered by="UserTest::testDeleteUserById"/>
+      </line>
+      <line nr="17">
+        <covered by="UserTest::testCreateUser"/>
+        <covered by="UserTest::testFindAllUser"/>
+        <covered by="UserTest::testFindUserById"/>
+        <covered by="UserTest::testDeleteUserById"/>
+      </line>
+      <line nr="27">
+        <covered by="UserTest::testFindAllUser"/>
+      </line>
+      <line nr="28">
+        <covered by="UserTest::testFindAllUser"/>
+      </line>
+      <line nr="29">
+        <covered by="UserTest::testFindAllUser"/>
+      </line>
+      <line nr="30">
+        <covered by="UserTest::testFindAllUser"/>
+      </line>
+      <line nr="42">
+        <covered by="UserTest::testCreateUser"/>
+      </line>
+      <line nr="43">
+        <covered by="UserTest::testCreateUser"/>
+      </line>
+      <line nr="55">
+        <covered by="UserTest::testFindUserById"/>
+      </line>
+      <line nr="67">
+        <covered by="UserTest::testDeleteUserById"/>
+      </line>
+    </coverage>
+  </file>
+</phpunit>
