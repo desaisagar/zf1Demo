@@ -21,5 +21,35 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $router = Zend_Controller_Front::getInstance()->getRouter();
         include APPLICATION_PATH . "/configs/routes.php";
     }
+
+    /**
+     * Init the loggers
+     *
+     * @return object Zend_Log object
+     */
+    protected function _initLogger()
+    {
+        // General application logging
+        $writer = new Zend_Log_Writer_Stream(
+            PROJECT_ROOT . '/data/log/app.log', 'a+'
+        );
+
+        $logger = new Zend_Log($writer);
+        Zend_Registry::set('logger', $logger);
+
+        return $logger;
+    }
+
+    /**
+     * Init mail options
+     *
+     * @return array
+     */
+    protected function _initMailOptions()
+    {
+        $mail = Zend_Registry::set('mail', $this->getOption('mail'));
+        return $mail;
+    }
+
 }
 

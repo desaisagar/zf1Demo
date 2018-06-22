@@ -110,6 +110,7 @@ class Application_Form_UserForm extends Zend_Form
 
         $this->addElement('submit', 'submit', array(
             'ignore' => true,
+            'class' => 'btn btn-primary',
             'label' => 'Submit'
         ));
 

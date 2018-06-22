@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Application Test Suite" tests="4" assertions="4" failures="0" errors="0" time="0.113098">
-    <testsuite name="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" tests="4" assertions="4" failures="0" errors="0" time="0.113098">
-      <testcase name="testCreateUser" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="13" assertions="1" time="0.046342"/>
-      <testcase name="testFindAllUser" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="29" assertions="1" time="0.013738"/>
-      <testcase name="testFindUserById" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="45" assertions="1" time="0.018604"/>
-      <testcase name="testDeleteUserById" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="63" assertions="1" time="0.034414"/>
+  <testsuite name="Application Test Suite" tests="4" assertions="4" failures="0" errors="0" time="1.795215">
+    <testsuite name="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" tests="4" assertions="4" failures="0" errors="0" time="1.795215">
+      <testcase name="testCreateUser" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="13" assertions="1" time="1.739446"/>
+      <testcase name="testFindAllUser" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="29" assertions="1" time="0.010436"/>
+      <testcase name="testFindUserById" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="45" assertions="1" time="0.015059"/>
+      <testcase name="testDeleteUserById" class="UserTest" file="/var/www/organisation/tests/application/services/UserTest.php" line="63" assertions="1" time="0.030274"/>
     </testsuite>
   </testsuite>
 </testsuites>

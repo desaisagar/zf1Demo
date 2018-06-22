@@ -9,16 +9,16 @@
     </tests>
     <directory name="/var/www/organisation/application/services">
       <totals>
-        <lines total="69" comments="33" code="36" executable="10" executed="10" percent="100.00%"/>
-        <methods count="5" tested="5" percent="100.00%"/>
+        <lines total="96" comments="40" code="56" executable="26" executed="26" percent="100.00%"/>
+        <methods count="6" tested="6" percent="100.00%"/>
         <functions count="0" tested="0" percent=""/>
         <classes count="1" tested="1" percent="100.00%"/>
         <traits count="0" tested="0" percent=""/>
       </totals>
       <file name="User.php" href="User.php.xml">
         <totals>
-          <lines total="69" comments="33" code="36" executable="10" executed="10" percent="100.00%"/>
-          <methods count="5" tested="5" percent="100.00%"/>
+          <lines total="96" comments="40" code="56" executable="26" executed="26" percent="100.00%"/>
+          <methods count="6" tested="6" percent="100.00%"/>
           <functions count="0" tested="0" percent=""/>
           <classes count="1" tested="1" percent="100.00%"/>
           <traits count="0" tested="0" percent=""/>

@@ -14,6 +14,8 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
+define('PROJECT_ROOT', realpath(__DIR__ . '/../'));
+
 require_once 'Zend/Loader/Autoloader.php';
 Zend_Loader_Autoloader::getInstance();
 $application = new Zend_Application(

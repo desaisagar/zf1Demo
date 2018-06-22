@@ -85,7 +85,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
         return [
             'name' => 'Sagar Desai',
             'gender' => 'Male',
-            'email' => 'test@easternenterprise.com',
+            'email' => 's.desai@easternenterprise.com',
             'mobileNumber' => '9568596575',
             'dateOfBirth' => '31-10-1990',
             'designation' => 'Developer',

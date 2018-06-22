@@ -25,6 +25,11 @@
                 <td>
                     <a href="<?php echo $this->url([
                         'controller' => 'user',
+                        'action' => 'show',
+                        'id' => $user['id']
+                    ], 'default', true) ?>"><i class="glyphicon glyphicon-eye-open"></i> &nbsp;</a>
+                    <a href="<?php echo $this->url([
+                        'controller' => 'user',
                         'action' => 'edit',
                         'id' => $user['id']
                     ], 'default', true) ?>"><i class="glyphicon glyphicon-edit"></i> </a> &nbsp;

@@ -1,0 +1,35 @@
+<a href="<?php echo $this->url(array(
+        'controller' => 'user',
+        'action' => 'index'
+), 'default', true) ?>" class="btn btn-default">Back</a>
+<h3>Employee details : </h3><br />
+<table class="table table-striped">
+    <tr>
+        <th>Name: </th>
+        <td><?php echo $this->user->getName() ?></td>
+    </tr>
+    <tr>
+        <th>Gender: </th>
+        <td><?php echo $this->user->getGender() ?></td>
+    </tr>
+    <tr>
+        <th>Email: </th>
+        <td><?php echo $this->user->getEmail() ?></td>
+    </tr>
+    <tr>
+        <th>Mobile number: </th>
+        <td><?php echo $this->user->getMobileNumber() ?></td>
+    </tr>
+    <tr>
+        <th>Date of birth: </th>
+        <td><?php echo $this->user->getDateOfBirth() ?></td>
+    </tr>
+    <tr>
+        <th>Designation: </th>
+        <td><?php echo $this->user->getDesignation() ?></td>
+    </tr>
+    <tr>
+        <th>Branch: </th>
+        <td><?php echo $this->user->getBranch() ?></td>
+    </tr>
+</table>

@@ -40,7 +40,14 @@ class Application_Service_User
     public function save($data)
     {
         $user = new Application_Model_User($data);
-        return $this->_userMapper->save($user);
+        $result = $this->_userMapper->save($user);
+        if ($result) {
+            $this->sendEmail($data);
+        }
+        /** @var Zend_Log $logger */
+        $logger = Zend_Registry::get('logger');
+        $logger->log('New user with email ' . $data['email'] . ' created.', Zend_Log::INFO);
+        return $result;
     }
 
     /**
@@ -65,6 +72,26 @@ class Application_Service_User
     public function delete($id)
     {
         return $this->_userMapper->delete($id);
+    }
+
+    /**
+     * Send email to user
+     *
+     * @param array $data
+     * @return void
+     */
+    private function sendEmail($data)
+    {
+        $mailOptions = Zend_Registry::get('mail');
+        $server = $mailOptions['server'];
+        unset($mailOptions['server']);
+        $transport = new Zend_Mail_Transport_Smtp($server, $mailOptions);
+        $mail = new Zend_Mail();
+        $mail->setFrom('noreply@noreply.com', 'Eastern Enterprise')
+            ->setSubject('Your account has been created')
+            ->setBodyHtml('Hi ' . $data['name'] . ',<br /><br /> Your account has been created successfully. <br /><br /> Thanks!')
+            ->addTo($data['email'])
+            ->send($transport);
     }
 
 }

@@ -31,3 +31,11 @@ $route = new Zend_Controller_Router_Route(
     ]
 );
 $router->addRoute('user/delete/:id', $route);
+
+$route = new Zend_Controller_Router_Route(
+    'user/show/:id', [
+        'controller' => 'user',
+        'action' => 'show'
+    ]
+);
+$router->addRoute('user/show/:id', $route);
