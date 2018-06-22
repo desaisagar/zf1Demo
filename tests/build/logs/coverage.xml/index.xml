@@ -9,7 +9,7 @@
     </tests>
     <directory name="/var/www/organisation/application/services">
       <totals>
-        <lines total="96" comments="40" code="56" executable="26" executed="26" percent="100.00%"/>
+        <lines total="98" comments="43" code="55" executable="27" executed="27" percent="100.00%"/>
         <methods count="6" tested="6" percent="100.00%"/>
         <functions count="0" tested="0" percent=""/>
         <classes count="1" tested="1" percent="100.00%"/>
@@ -17,7 +17,7 @@
       </totals>
       <file name="User.php" href="User.php.xml">
         <totals>
-          <lines total="96" comments="40" code="56" executable="26" executed="26" percent="100.00%"/>
+          <lines total="98" comments="43" code="55" executable="27" executed="27" percent="100.00%"/>
           <methods count="6" tested="6" percent="100.00%"/>
           <functions count="0" tested="0" percent=""/>
           <classes count="1" tested="1" percent="100.00%"/>

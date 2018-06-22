@@ -1,9 +1,9 @@
 <ul class="pagination pull-right">
-<?php foreach ($this->pagesInRange as $page) : ?>
+<?php foreach ($this->pagesInRange as $page): ?>
     <?php if($this->current === $page): ?>
     <li class="active"><a><?php echo $page; ?></a></li>
     <?php else: ?>
-    <li><a href="<?php echo $this->url(array('page' => $page)) ?>"><?php echo $page; ?></a></li>
+    <li><a href="<?php echo $this->url(['page' => $page]) ?>"><?php echo $page; ?></a></li>
     <?php endif; ?>
 <?php endforeach; ?>
 </ul>

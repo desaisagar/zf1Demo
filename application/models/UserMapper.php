@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Class Application_Model_UserMapper
+ */
 class Application_Model_UserMapper
 {
 
@@ -24,6 +26,7 @@ class Application_Model_UserMapper
             throw new Exception('Invalid table data gateway provided');
         }
         $this->_dbTable = $dbTable;
+
         return $this;
     }
 
@@ -38,6 +41,7 @@ class Application_Model_UserMapper
         if (null === $this->_dbTable) {
             $this->setDbTable(Application_Model_DbTable_UserDbTable::class);
         }
+
         return $this->_dbTable;
     }
 
@@ -58,7 +62,6 @@ class Application_Model_UserMapper
             'date_of_birth' => $user->getDateOfBirth() ? date('Y-m-d', strtotime($user->getDateOfBirth())) : null,
             'designation' => $user->getDesignation(),
             'branch' => $user->getBranch(),
-            'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
         $id = $user->getId();
@@ -96,23 +99,24 @@ class Application_Model_UserMapper
         return $selectUsers;
     }
 
-
     /**
      * Find single record of user by id
      *
      * @param int $id
      * @return Application_Model_User|void
-     * @throws Zend_Db_Table_Exception
+     * @throws Exception
      */
     public function find($id)
     {
-        $result = $this->getDbTable()->find($id);
-        if (0 == count($result)) {
-            return;
+        if ($id) {
+            $result = $this->getDbTable()->find($id);
+            if (0 == count($result)) {
+                return;
+            }
+            $row = $result->current();
+            $user = $this->convertRowToObject($row);
+            return $user;
         }
-        $row = $result->current();
-        $user = $this->convertRowToObject($row);
-        return $user;
     }
 
     /**
@@ -124,30 +128,31 @@ class Application_Model_UserMapper
      */
     public function delete($id)
     {
-        return $this->getDbTable()->delete(array('id = ?' => $id));
+        if ($id) {
+            return $this->getDbTable()->delete(array('id = ?' => $id));
+        }
     }
 
     /**
      * Convert table row to user object
      *
-     * @param array $row
+     * @param Zend_Db_Table_Row $row
      * @return Application_Model_User
      */
-    private function convertRowToObject($row)
+    private function convertRowToObject(Zend_Db_Table_Row $row)
     {
         if ($row instanceof Zend_Db_Table_Row) {
             $user = new Application_Model_User();
-            $user->setId($row->id);
-            $user->setName($row->name);
-            $user->setGender($row->gender);
-            $user->setEmail($row->email);
-            $user->setMobileNumber($row->mobile_number);
-            $user->setDateOfBirth($row->date_of_birth);
-            $user->setDesignation($row->designation);
-            $user->setBranch($row->branch);
+            $user->setId($row->id)
+                ->setName($row->name)
+                ->setGender($row->gender)
+                ->setEmail($row->email)
+                ->setMobileNumber($row->mobile_number)
+                ->setDateOfBirth($row->date_of_birth)
+                ->setDesignation($row->designation)
+                ->setBranch($row->branch);
+
             return $user;
         }
     }
-
 }
-

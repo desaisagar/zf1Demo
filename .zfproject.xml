@@ -47,7 +47,7 @@
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
-            <viewScriptFile forActionName="save"/>
+            <viewScriptFile forActionName="create"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="edit"/>

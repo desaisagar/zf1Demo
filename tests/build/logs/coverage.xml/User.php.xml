@@ -2,37 +2,34 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="User.php">
     <totals>
-      <lines total="96" comments="40" code="56" executable="26" executed="26" percent="100.00%"/>
+      <lines total="98" comments="43" code="55" executable="27" executed="27" percent="100.00%"/>
       <methods count="6" tested="6" percent="100.00%"/>
       <functions count="0" tested="0" percent=""/>
       <classes count="1" tested="1" percent="100.00%"/>
       <traits count="0" tested="0" percent=""/>
     </totals>
-    <class name="Application_Service_User" start="3" executable="26" executed="26" crap="7">
+    <class name="Application_Service_User" start="5" executable="27" executed="27" crap="7">
       <package full="Application.Service" name="" sub="" category=""/>
       <namespace name=""/>
-      <method name="__construct" signature="__construct()" start="14" end="17" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="findAll" signature="findAll($page = 1)" start="25" end="31" crap="1" executable="4" executed="4" coverage="100"/>
-      <method name="save" signature="save($data)" start="40" end="51" crap="2" executable="7" executed="7" coverage="100"/>
-      <method name="findById" signature="findById($id)" start="60" end="63" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="delete" signature="delete($id)" start="72" end="75" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="sendEmail" signature="sendEmail($data)" start="83" end="95" crap="1" executable="11" executed="11" coverage="100"/>
+      <method name="__construct" signature="__construct()" start="15" end="18" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="findAll" signature="findAll($page = 1)" start="26" end="33" crap="1" executable="5" executed="5" coverage="100"/>
+      <method name="save" signature="save($data)" start="42" end="53" crap="2" executable="7" executed="7" coverage="100"/>
+      <method name="findById" signature="findById($id)" start="62" end="65" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="delete" signature="delete($id)" start="74" end="77" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="sendEmail" signature="sendEmail($data)" start="85" end="97" crap="1" executable="11" executed="11" coverage="100"/>
     </class>
     <coverage>
-      <line nr="16">
-        <covered by="UserTest::testCreateUser"/>
-        <covered by="UserTest::testFindAllUser"/>
-        <covered by="UserTest::testFindUserById"/>
-        <covered by="UserTest::testDeleteUserById"/>
-      </line>
       <line nr="17">
         <covered by="UserTest::testCreateUser"/>
         <covered by="UserTest::testFindAllUser"/>
         <covered by="UserTest::testFindUserById"/>
         <covered by="UserTest::testDeleteUserById"/>
       </line>
-      <line nr="27">
+      <line nr="18">
+        <covered by="UserTest::testCreateUser"/>
         <covered by="UserTest::testFindAllUser"/>
+        <covered by="UserTest::testFindUserById"/>
+        <covered by="UserTest::testDeleteUserById"/>
       </line>
       <line nr="28">
         <covered by="UserTest::testFindAllUser"/>
@@ -43,11 +40,11 @@
       <line nr="30">
         <covered by="UserTest::testFindAllUser"/>
       </line>
-      <line nr="42">
-        <covered by="UserTest::testCreateUser"/>
+      <line nr="31">
+        <covered by="UserTest::testFindAllUser"/>
       </line>
-      <line nr="43">
-        <covered by="UserTest::testCreateUser"/>
+      <line nr="32">
+        <covered by="UserTest::testFindAllUser"/>
       </line>
       <line nr="44">
         <covered by="UserTest::testCreateUser"/>
@@ -55,26 +52,26 @@
       <line nr="45">
         <covered by="UserTest::testCreateUser"/>
       </line>
-      <line nr="48">
+      <line nr="46">
         <covered by="UserTest::testCreateUser"/>
       </line>
-      <line nr="49">
+      <line nr="47">
         <covered by="UserTest::testCreateUser"/>
       </line>
       <line nr="50">
         <covered by="UserTest::testCreateUser"/>
       </line>
-      <line nr="62">
+      <line nr="51">
+        <covered by="UserTest::testCreateUser"/>
+      </line>
+      <line nr="52">
+        <covered by="UserTest::testCreateUser"/>
+      </line>
+      <line nr="64">
         <covered by="UserTest::testFindUserById"/>
       </line>
-      <line nr="74">
+      <line nr="76">
         <covered by="UserTest::testDeleteUserById"/>
-      </line>
-      <line nr="85">
-        <covered by="UserTest::testCreateUser"/>
-      </line>
-      <line nr="86">
-        <covered by="UserTest::testCreateUser"/>
       </line>
       <line nr="87">
         <covered by="UserTest::testCreateUser"/>
@@ -101,6 +98,12 @@
         <covered by="UserTest::testCreateUser"/>
       </line>
       <line nr="95">
+        <covered by="UserTest::testCreateUser"/>
+      </line>
+      <line nr="96">
+        <covered by="UserTest::testCreateUser"/>
+      </line>
+      <line nr="97">
         <covered by="UserTest::testCreateUser"/>
       </line>
     </coverage>

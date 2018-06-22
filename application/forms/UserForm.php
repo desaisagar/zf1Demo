@@ -1,9 +1,12 @@
 <?php
-
+/**
+ * Class Application_Form_UserForm
+ */
 class Application_Form_UserForm extends Zend_Form
 {
-
     /**
+     * Validate the form
+     *
      * @param array $data
      * @return bool
      */
@@ -11,114 +14,115 @@ class Application_Form_UserForm extends Zend_Form
     {
         $this->getElement('email')
             ->addValidators(
-                array(
+                [
                     'EmailAddress',
-                    array('Db_NoRecordExists', false, array(
+                    ['Db_NoRecordExists', false, [
                         'table' => 'users',
                         'field' => 'email',
-                        'messages' => array(
+                        'messages' => [
                             'recordFound' => 'Email already taken'
-                        ),
-                        'exclude'   => array(
+                        ],
+                        'exclude'   => [
                             'field' => 'id',
                             'value' => $data['id']
-                            )
-                        )
-                    )
-                )
+                            ]
+                        ]
+                    ]
+                ]
             );
         return parent::isValid($data);
     }
 
-
+    /**
+     * Initialize form (used by extending classes)
+     *
+     * @throws Zend_Form_Exception
+     */
     public function init()
     {
         /* Form Elements & Other Definitions Here ... */
-        $this->addElement('hidden', 'id', array(
+        $this->addElement('hidden', 'id', [
             'required' => false,
-            'filters' => array('StringTrim')
-        ));
+            'filters' => ['StringTrim']
+        ]);
 
-        $this->addElement('text', 'name', array(
+        $this->addElement('text', 'name', [
             'label' => 'Name:',
             'class' => 'form-control',
             'required' => true,
-            'filters' => array('StringTrim')
-        ));
+            'filters' => ['StringTrim']
+        ]);
 
-        $this->addElement('radio', 'gender', array(
+        $this->addElement('radio', 'gender', [
             'label' => 'Gender:',
             'class' => 'form-control',
             'required' => true,
-            'multiOptions' => array(
+            'multiOptions' => [
                 'Male' => 'Male',
                 'Female' => 'Female'
-            )
-        ));
+            ]
+        ]);
 
-        $this->addElement('text', 'email', array(
+        $this->addElement('text', 'email', [
             'label'      => 'Email address:',
             'class' => 'form-control',
             'required'   => true,
-            'filters'    => array('StringTrim'),
-            'validators' => array(
+            'filters'    => ['StringTrim'],
+            'validators' => [
                 'EmailAddress',
-                array('Db_NoRecordExists', false, array(
+                ['Db_NoRecordExists', false, [
                         'table' => 'users',
                         'field' => 'email',
-                        'messages' => array(
+                        'messages' => [
                             'recordFound' => 'Email already taken'
-                        )
-                    )
-                )
-            )
-        ));
+                        ]
+                    ]
+                ]
+            ]
+        ]);
 
-        $this->addElement('text', 'mobileNumber', array(
+        $this->addElement('text', 'mobileNumber', [
             'label' => 'Mobile Number:',
             'class' => 'form-control',
             'required' => false,
-            'filters' => array('StringTrim'),
-        ));
+            'filters' => ['StringTrim'],
+        ]);
 
-        $this->addElement('text', 'dateOfBirth', array(
+        $this->addElement('text', 'dateOfBirth', [
             'label' => 'Date of birth:',
             'class' => 'form-control',
             'required' => false,
-            'filters' => array('StringTrim'),
+            'filters' => ['StringTrim'],
             'placeholder' => 'dd-mm-yyyy'
-        ));
+        ]);
 
-        $this->addElement('select', 'designation', array(
+        $this->addElement('select', 'designation', [
             'label' => 'Designation:',
             'class' => 'form-control',
             'required' => true,
-            'multiOptions' => array(
+            'multiOptions' => [
                 '' => 'Please select designation',
                 'Manager' => 'Manager',
                 'Developer' => 'Developer',
                 'Tester' => 'Tester'
-            )
-        ));
+            ]
+        ]);
 
-        $this->addElement('text', 'branch', array(
+        $this->addElement('text', 'branch', [
             'label' => 'Branch:',
             'class' => 'form-control',
             'required' => true,
-            'filters' => array('StringTrim')
-        ));
+            'filters' => ['StringTrim']
+        ]);
 
-        $this->addElement('submit', 'submit', array(
+        $this->addElement('submit', 'submit', [
             'ignore' => true,
             'class' => 'btn btn-primary',
             'label' => 'Submit'
-        ));
+        ]);
 
-        $this->addElement('hash', 'csrf', array(
+        $this->addElement('hash', 'csrf', [
             'ignore' => true,
-        ));
+        ]);
     }
-
-
 }
-

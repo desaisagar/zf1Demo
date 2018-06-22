@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1529573621">
-  <project timestamp="1529573621">
+<coverage generated="1529668602">
+  <project timestamp="1529668602">
     <file name="/var/www/organisation/application/services/User.php">
       <class name="Application_Service_User" namespace="global" fullPackage="Application.Service">
-        <metrics complexity="7" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="26" elements="32" coveredelements="32"/>
+        <metrics complexity="7" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="27" elements="33" coveredelements="33"/>
       </class>
-      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="16" type="stmt" count="4"/>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="17" type="stmt" count="4"/>
-      <line num="25" type="method" name="findAll" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="27" type="stmt" count="1"/>
+      <line num="18" type="stmt" count="4"/>
+      <line num="26" type="method" name="findAll" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="28" type="stmt" count="1"/>
       <line num="29" type="stmt" count="1"/>
       <line num="30" type="stmt" count="1"/>
-      <line num="40" type="method" name="save" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="42" type="stmt" count="1"/>
-      <line num="43" type="stmt" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="42" type="method" name="save" visibility="public" complexity="2" crap="2" count="1"/>
       <line num="44" type="stmt" count="1"/>
       <line num="45" type="stmt" count="1"/>
-      <line num="48" type="stmt" count="1"/>
-      <line num="49" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="1"/>
       <line num="50" type="stmt" count="1"/>
-      <line num="60" type="method" name="findById" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="62" type="stmt" count="1"/>
-      <line num="72" type="method" name="delete" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="74" type="stmt" count="1"/>
-      <line num="83" type="method" name="sendEmail" visibility="private" complexity="1" crap="1" count="1"/>
-      <line num="85" type="stmt" count="1"/>
-      <line num="86" type="stmt" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="52" type="stmt" count="1"/>
+      <line num="62" type="method" name="findById" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="74" type="method" name="delete" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="85" type="method" name="sendEmail" visibility="private" complexity="1" crap="1" count="1"/>
       <line num="87" type="stmt" count="1"/>
       <line num="88" type="stmt" count="1"/>
       <line num="89" type="stmt" count="1"/>
@@ -37,8 +36,10 @@
       <line num="93" type="stmt" count="1"/>
       <line num="94" type="stmt" count="1"/>
       <line num="95" type="stmt" count="1"/>
-      <metrics loc="96" ncloc="56" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="26" elements="32" coveredelements="32"/>
+      <line num="96" type="stmt" count="1"/>
+      <line num="97" type="stmt" count="1"/>
+      <metrics loc="98" ncloc="55" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="27" elements="33" coveredelements="33"/>
     </file>
-    <metrics files="1" loc="96" ncloc="56" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="26" elements="32" coveredelements="32"/>
+    <metrics files="1" loc="98" ncloc="55" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="27" elements="33" coveredelements="33"/>
   </project>
 </coverage>

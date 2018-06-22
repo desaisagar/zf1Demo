@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Class Application_Model_DbTable_UserDbTable
+ */
 class Application_Model_DbTable_UserDbTable extends Zend_Db_Table_Abstract
 {
     /**
@@ -8,5 +10,4 @@ class Application_Model_DbTable_UserDbTable extends Zend_Db_Table_Abstract
      * @var string
      */
     protected $_name = 'users';
-
 }

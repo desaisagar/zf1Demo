@@ -1,13 +1,22 @@
+--
+-- Table structure for table `users`
+--
 CREATE TABLE `users` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(32) NOT NULL ,
-  `gender` ENUM('Male','Female') NOT NULL ,
-  `email` VARCHAR(50) NOT NULL ,
-  `mobile_number` VARCHAR(10) NULL DEFAULT NULL ,
-  `date_of_birth` DATE NULL DEFAULT NULL ,
-  `designation` VARCHAR(50) NOT NULL ,
-  `branch` VARCHAR(50) NOT NULL ,
-  `created_at` DATETIME NOT NULL ,
-  `updated_at` DATETIME NOT NULL ,
-  PRIMARY KEY (`id`(11)), UNIQUE (`email`)
-) ENGINE = InnoDB;
+  `id` int(11) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `gender` enum('Male','Female') NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `mobile_number` varchar(10) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `designation` varchar(50) NOT NULL,
+  `branch` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);

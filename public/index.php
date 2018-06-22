@@ -18,11 +18,20 @@ define('PROJECT_ROOT', realpath(__DIR__ . '/../'));
 
 /** Zend_Application */
 require_once 'Zend/Application.php';
+require_once 'Zend/Config/Ini.php';
+$globalConfig = new Zend_Config_Ini(
+    APPLICATION_PATH . '/configs/application.ini',
+    APPLICATION_ENV,
+    array ('allowModifications' => true)
+);
+
+$constants = new Zend_Config_Ini(APPLICATION_PATH . '/configs/constants.ini');
+$globalConfig->merge($constants);
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(
     APPLICATION_ENV,
-    APPLICATION_PATH . '/configs/application.ini'
+    $globalConfig
 );
 $application->bootstrap()
             ->run();

@@ -17,10 +17,20 @@ set_include_path(implode(PATH_SEPARATOR, array(
 define('PROJECT_ROOT', realpath(__DIR__ . '/../'));
 
 require_once 'Zend/Loader/Autoloader.php';
+require_once 'Zend/Config/Ini.php';
+$globalConfig = new Zend_Config_Ini(
+    APPLICATION_PATH . '/configs/application.ini',
+    APPLICATION_ENV,
+    array ('allowModifications' => true)
+);
+
+$constants = new Zend_Config_Ini(APPLICATION_PATH . '/configs/constants.ini');
+$globalConfig->merge($constants);
+
 Zend_Loader_Autoloader::getInstance();
 $application = new Zend_Application(
     APPLICATION_ENV,
-    APPLICATION_PATH . '/configs/application.ini'
+    $globalConfig
 );
 $option = $application->getOptions();
 $application->setOptions($option);

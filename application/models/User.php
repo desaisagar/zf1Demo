@@ -1,23 +1,63 @@
 <?php
-
+/**
+ * Class Application_Model_User
+ */
 class Application_Model_User
 {
-
+    /**
+     * @var int
+     */
     protected $_id;
+
+    /**
+     * @var string
+     */
     protected $_name;
+
+    /**
+     * @var string
+     */
     protected $_gender;
+
+    /**
+     * @var string
+     */
     protected $_email;
+
+    /**
+     * @var string
+     */
     protected $_mobileNumber;
+
+    /**
+     * @var string
+     */
     protected $_dateOfBirth;
+
+    /**
+     * @var string
+     */
     protected $_designation;
+
+    /**
+     * @var string
+     */
     protected $_branch;
+
+    /**
+     * @var string
+     */
     protected $_createAt;
+
+    /**
+     * @var string
+     */
     protected $_updatedAt;
 
     /**
      * Application_Model_User constructor.
      *
-     * @param array|null $options
+     * @param array|null $options The options
      * @return void
      */
     public function __construct(array $options = null)
@@ -30,8 +70,8 @@ class Application_Model_User
     /**
      * Set options
      *
-     * @param array $options
-     * @return $this
+     * @param array $options The options
+     * @return Application_Model_User $this
      */
     public function setOptions(array $options)
     {
@@ -46,8 +86,10 @@ class Application_Model_User
     }
 
     /**
-     * @param string $name
-     * @param mixed $value
+     * Setter for user
+     *
+     * @param string $name The name of property
+     * @param mixed $value The value of property
      * @throws Exception
      */
     public function __set($name, $value)
@@ -60,7 +102,9 @@ class Application_Model_User
     }
 
     /**
-     * @param string $name
+     * Getter for user
+     *
+     * @param string $name The user name
      * @return mixed
      * @throws Exception
      */
@@ -70,10 +114,13 @@ class Application_Model_User
         if (('mapper' == $name) || !method_exists($this, $method)) {
             throw new Exception('Invalid user property');
         }
+
         return $this->$method();
     }
 
     /**
+     * Get id
+     *
      * @return int|null
      */
     public function getId()
@@ -82,155 +129,223 @@ class Application_Model_User
     }
 
     /**
-     * @param int|null $id
+     * Set id
+     *
+     * @param int|null $id The user id or null
+     * @return Application_Model_User
      */
-    public function setId($id): void
+    public function setId($id): Application_Model_User
     {
         $this->_id = $id;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get name
+     *
+     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->_name;
     }
 
     /**
-     * @param mixed $name
+     * Set name
+     *
+     * @param string $name The user name
+     * @return Application_Model_User
      */
-    public function setName($name): void
+    public function setName($name): Application_Model_User
     {
         $this->_name = $name;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get gender
+     *
+     * @return string
      */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->_gender;
     }
 
     /**
-     * @param mixed $gender
+     * Set gender
+     *
+     * @param string $gender The user gender
+     * @return Application_Model_User
      */
-    public function setGender($gender): void
+    public function setGender($gender): Application_Model_User
     {
         $this->_gender = $gender;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get email address
+     *
+     * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->_email;
     }
 
     /**
-     * @param mixed $email
+     * Set email address
+     *
+     * @param mixed $email The user email address
+     * @return Application_Model_User
      */
-    public function setEmail($email): void
+    public function setEmail($email): Application_Model_User
     {
         $this->_email = $email;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get mobile number
+     *
+     * @return string
      */
-    public function getMobileNumber()
+    public function getMobileNumber(): string
     {
         return $this->_mobileNumber;
     }
 
     /**
-     * @param mixed $mobileNumber
+     * Set mobile number
+     *
+     * @param string $mobileNumber The user mobile number
+     * @return Application_Model_User
      */
-    public function setMobileNumber($mobileNumber): void
+    public function setMobileNumber($mobileNumber): Application_Model_User
     {
         $this->_mobileNumber = $mobileNumber;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get date of birth
+     *
+     * @return string
      */
-    public function getDateOfBirth()
+    public function getDateOfBirth(): string
     {
         return $this->_dateOfBirth;
     }
 
     /**
-     * @param mixed $dateOfBirth
+     * Set date of birth
+     *
+     * @param string $dateOfBirth The user date of birth
+     * @return Application_Model_User
      */
-    public function setDateOfBirth($dateOfBirth): void
+    public function setDateOfBirth($dateOfBirth): Application_Model_User
     {
         $this->_dateOfBirth = $dateOfBirth;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get designation
+     *
+     * @return string
      */
-    public function getDesignation()
+    public function getDesignation(): string
     {
         return $this->_designation;
     }
 
     /**
-     * @param mixed $designation
+     * Set designation
+     *
+     * @param string $designation The user designation
+     * @return Application_Model_User
      */
-    public function setDesignation($designation): void
+    public function setDesignation($designation): Application_Model_User
     {
         $this->_designation = $designation;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get branch
+     *
+     * @return string
      */
-    public function getBranch()
+    public function getBranch(): string
     {
         return $this->_branch;
     }
 
     /**
-     * @param mixed $branch
+     * Set branch
+     *
+     * @param string $branch The user branch
+     * @return Application_Model_User
      */
-    public function setBranch($branch): void
+    public function setBranch($branch): Application_Model_User
     {
         $this->_branch = $branch;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get created at
+     *
+     * @return string
      */
-    public function getCreateAt()
+    public function getCreateAt(): string
     {
         return $this->_createAt;
     }
 
     /**
-     * @param mixed $createAt
+     * Set created at
+     *
+     * @param string $createAt The user created date time
+     * @return Application_Model_User
      */
-    public function setCreateAt($createAt): void
+    public function setCreateAt($createAt): Application_Model_User
     {
         $this->_createAt = $createAt;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get updated at
+     *
+     * @return string
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): string
     {
         return $this->_updatedAt;
     }
 
     /**
-     * @param mixed $updatedAt
+     * Set updated at
+     *
+     * @param string $updatedAt The user updated date time
+     * @return Application_Model_User
      */
-    public function setUpdatedAt($updatedAt): void
+    public function setUpdatedAt($updatedAt): Application_Model_User
     {
         $this->_updatedAt = $updatedAt;
+
+        return $this;
     }
 
     /**
@@ -240,7 +355,7 @@ class Application_Model_User
      */
     public function toArray()
     {
-        return array(
+        return [
             'id' => $this->_id,
             'name' => $this->_name,
             'gender' => $this->_gender,
@@ -249,8 +364,6 @@ class Application_Model_User
             'dateOfBirth' => $this->_dateOfBirth,
             'designation' => $this->_designation,
             'branch' => $this->_branch
-        );
+        ];
     }
-
 }
-

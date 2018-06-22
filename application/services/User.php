@@ -1,8 +1,9 @@
 <?php
-
+/**
+ * Class Application_Service_User
+ */
 class Application_Service_User
 {
-
     /**
      * @var Application_Model_UserMapper
      */
@@ -24,8 +25,9 @@ class Application_Service_User
      */
     public function findAll($page = 1)
     {
+        $config = Zend_Registry::get('config');
         $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_DbSelect($this->_userMapper->selectAll()));
-        $paginator->setItemCountPerPage(2)
+        $paginator->setItemCountPerPage($config->constant->paginator->ITEM_PAGE_PAGE)
             ->setCurrentPageNumber($page);
         return $paginator;
     }

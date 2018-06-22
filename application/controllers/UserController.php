@@ -1,8 +1,9 @@
 <?php
-
+/**
+ * Class UserController
+ */
 class UserController extends Zend_Controller_Action
 {
-
     /**
      * List of users
      *
@@ -18,7 +19,7 @@ class UserController extends Zend_Controller_Action
     /**
      * Get and save user data
      */
-    public function saveAction()
+    public function createAction()
     {
         $form = new Application_Form_UserForm();
         if ($this->getRequest()->isPost()) {
@@ -39,11 +40,14 @@ class UserController extends Zend_Controller_Action
      */
     public function editAction()
     {
+        $id = $this->getRequest()->getParam('id');
         $form = new Application_Form_UserForm();
-        if ($this->getRequest()->isGet()) {
+        if ($id) {
             $userService = new Application_Service_User();
-            $user = $userService->findById($this->getRequest()->getParam('id'));
+            $user = $userService->findById($id);
             $this->view->assign('userForm', $form->populate($user->toArray()));
+        } else {
+            return $this->_helper->redirector('index');
         }
         $this->view->title = 'Edit Employee';
     }
@@ -56,10 +60,12 @@ class UserController extends Zend_Controller_Action
      */
     public function deleteAction()
     {
-        if ($this->getRequest()->isGet()) {
+        $id = $this->getRequest()->getParam('id');
+        if ($id) {
             $userService = new Application_Service_User();
-            $userService->delete($this->getRequest()->getParam('id'));
+            $userService->delete($id);
         }
+
         return $this->_helper->redirector('index');
     }
 
@@ -70,14 +76,14 @@ class UserController extends Zend_Controller_Action
      */
     public function showAction()
     {
-        if ($this->getRequest()->isGet()) {
+        $id = $this->getRequest()->getParam('id');
+        if ($id) {
             $userService = new Application_Service_User();
-            $user = $userService->findById($this->getRequest()->getParam('id'));
+            $user = $userService->findById($id);
             $this->view->assign('user', $user);
         } else {
             return $this->_helper->redirector('index');
         }
         $this->view->title = 'View Employee Details';
     }
-
 }

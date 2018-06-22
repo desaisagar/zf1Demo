@@ -1,41 +1,29 @@
 <?php
 
-$route = new Zend_Controller_Router_Route(
-    '/user/:page', [
-        'controller' => 'user',
-        'action' => 'index'
+$userRoutes = [
+    'user/:page' => [
+        'action' => 'index',
+        'controller' => 'user'
+    ],
+    'user/create' => [
+        'action' => 'create',
+        'controller' => 'user'
+    ],
+    'user/edit/:id' => [
+        'action' => 'edit',
+        'controller' => 'user'
+    ],
+    'user/delete/:id' => [
+        'action' => 'delete',
+        'controller' => 'user'
+    ],
+    'user/show/:id' => [
+        'action' => 'show',
+        'controller' => 'user'
     ]
-);
-$router->addRoute('user/:page', $route);
+];
 
-$route = new Zend_Controller_Router_Route(
-    'user/create', [
-        'controller' => 'user',
-        'action' => 'save'
-    ]
-);
-$router->addRoute('user/create', $route);
-
-$route = new Zend_Controller_Router_Route(
-    'user/edit/:id', [
-        'controller' => 'user',
-        'action' => 'edit'
-    ]
-);
-$router->addRoute('user/edit/:id', $route);
-
-$route = new Zend_Controller_Router_Route(
-    'user/delete/:id', [
-        'controller' => 'user',
-        'action' => 'delete'
-    ]
-);
-$router->addRoute('user/delete/:id', $route);
-
-$route = new Zend_Controller_Router_Route(
-    'user/show/:id', [
-        'controller' => 'user',
-        'action' => 'show'
-    ]
-);
-$router->addRoute('user/show/:id', $route);
+foreach ($userRoutes as $path => $routeData) {
+    $route = new Zend_Controller_Router_Route($path, $routeData);
+    $router->addRoute($path, $route);
+}
